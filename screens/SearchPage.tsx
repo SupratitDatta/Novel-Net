@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, FlatList, Text } from 'react-native';
 import tw from 'twrnc';
 
-const SearchPage = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
+interface Book {
+    id: string;
+    name: string;
+}
 
-    const booksData = [
+const SearchPage: React.FC = () => {
+    const [searchQuery, setSearchQuery] = useState<string>('');
+
+    const booksData: Book[] = [
         { id: '1', name: 'Other Words For Home' },
         { id: '2', name: 'The Metropolis' },
         { id: '3', name: 'The Tiny Dragon' },
@@ -15,7 +20,7 @@ const SearchPage = () => {
         book.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item }: { item: Book }) => (
         <View style={tw`bg-gray-800 p-3 rounded mb-2`}>
             <Text style={tw`text-white`}>{item.name}</Text>
         </View>

@@ -1,4 +1,7 @@
 {
   "name": "BookStoreApp",
-  "displayName": "BookStoreApp"
+  "displayName": "BookStoreApp",
+  "plugins": [
+    "expo-font"
+  ]
 }
